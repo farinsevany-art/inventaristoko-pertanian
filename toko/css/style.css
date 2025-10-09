@@ -433,7 +433,7 @@ button {
     position: relative;
 }
 
-.cream_section::after {
+/* .cream_section::after {
     position: absolute;
     content: '';
     width: 120px;
@@ -454,7 +454,7 @@ button {
     background-repeat: no-repeat;
     top: 180px;
     right: 0px;
-}
+} */
 
 .cream_taital {
     width: 67%;
@@ -462,17 +462,6 @@ button {
     font-size: 40px;
     color: #373736;
     font-weight: bold;
-}
-
-.cream_taital::after {
-    position: absolute;
-    content: '';
-    width: 80px;
-    height: 6px;
-    background-color: #ffd6e1;
-    bottom: 20px;
-    right: 160px;
-    border-radius: 4px;
 }
 
 .cream_text {
