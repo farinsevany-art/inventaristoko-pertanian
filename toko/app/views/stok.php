@@ -22,7 +22,7 @@
                               $imgFile = strtolower($stok['nama_barang']) . '.jpeg';
                               $imgPath = 'images/' . (file_exists(__DIR__ . '/../../public/images/' . $imgFile) ? $imgFile : 'default.png');
                            ?>
-                           <img src="<?= $imgPath ?>" alt="<?= htmlspecialchars($stok['nama_barang']) ?>">
+                           <img src="<?= $imgPath ?>" alt="<?= htmlspecialchars($stok['nama_barang']) ?>" style="width: 200px;, height:200px;">
                         </div>
                         <div class="price_text"><?= htmlspecialchars($stok['total_stok_gudang']) ?> pcs</div>
                         <h6 class="strawberry_text"><?= htmlspecialchars($stok['nama_barang']) ?></h6>
@@ -61,7 +61,7 @@
                               $imgFile = strtolower($stok['nama_barang']) . '.jpeg';
                               $imgPath = 'images/' . (file_exists(__DIR__ . '/../../public/images/' . $imgFile) ? $imgFile : 'default.png');
                            ?>
-                           <img src="<?= $imgPath ?>" alt="<?= htmlspecialchars($stok['nama_barang']) ?>">
+                           <img src="<?= $imgPath ?>" alt="<?= htmlspecialchars($stok['nama_barang']) ?>" style="width: 200px;, height:200px;">
                         </div>
                         <div class="price_text"><?= htmlspecialchars($stok['total_stok_eta']) ?> pcs</div>
                         <h6 class="strawberry_text"><?= htmlspecialchars($stok['nama_barang']) ?></h6>
@@ -82,3 +82,4 @@
 
 <?php include '../app/views/templates/footer.php'; ?>
 </html>
+
