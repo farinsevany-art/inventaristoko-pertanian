@@ -56,7 +56,7 @@
                <div class="row">
                   <div class="col-md-4">
                      <div class="cream_box">
-                        <div class="cream_img"><img src="<?= $base_url ?>images/img-1.png" style="width: 170px; height: 210px;"></div>
+                        <div class="cream_img"><img src="<?= $base_url ?>images/Arrivo 100 ml.jpeg" style="width: 170px; height: 210px;"></div>
                         <!-- <div class="price_text">10</div> -->
                         <h6 class="strawberry_text">Arrivo</h6>
                         <a class="strawberry_text">Insektisida Arrivo<a>
@@ -65,7 +65,7 @@
                      </div>
                      <div class="col-md-4">
                         <div class="cream_box">
-                           <div class="cream_img"><img src="<?= $base_url ?>images/image-2.jpg" style="width: 170px; height: 210px;"></div>
+                           <div class="cream_img"><img src="<?= $base_url ?>images/Arjuna 100 ml.jpeg" style="width: 170px; height: 210px;"></div>
                            <!-- <div class="price_text">$10</div> -->
                            <h6 class="strawberry_text">Arjuna</h6>
                         <a class="strawberry_text">Insektisida Arjuna</a>
@@ -74,7 +74,7 @@
                   </div>
                   <div class="col-md-4">
                      <div class="cream_box">
-                        <div class="cream_img"><img src="<?= $base_url ?>images/img-3.png" style="width: 170px; height: 210px;"></div>
+                        <div class="cream_img"><img src="<?= $base_url ?>images/Ares 100 ml.jpeg" style="width: 170px; height: 210px;"></div>
                         <!-- <div class="price_text">$10</div> -->
                         <h6 class="strawberry_text">Ares</h6>
                         <a class="strawberry_text">Insektisida Ares</a>
@@ -87,7 +87,7 @@
                <div class="row">
                   <div class="col-md-4">
                      <div class="cream_box">
-                        <div class="cream_img"><img src="<?= $base_url ?>images/img-4.png" style="width: 170px; height: 210px;"></div>
+                        <div class="cream_img"><img src="<?= $base_url ?>images/KNO Merah.jpeg" style="width: 170px; height: 210px;"></div>
                         <!-- <div class="price_text">$10</div> -->
                         <h6 class="strawberry_text">KNO Merah</h6>
                         <a class="strawberry_text">Pupuk KNO Merah</a>
@@ -96,7 +96,7 @@
                   </div>
                   <div class="col-md-4">
                      <div class="cream_box">
-                        <div class="cream_img"><img src="<?= $base_url ?>images/img-5.png" style="width: 170px; height: 210px;"></div>
+                        <div class="cream_img"><img src="<?= $base_url ?>images/KCL Mahkota.jpeg" style="width: 170px; height: 210px;"></div>
                         <!-- <div class="price_text">$10</div> -->
                         <h6 class="strawberry_text">KCL Mahkota</h6>
                         <a class="strawberry_text">Pupuk KCL Mahkota</a>
@@ -105,7 +105,7 @@
                   </div>
                   <div class="col-md-4">
                      <div class="cream_box">
-                        <div class="cream_img"><img src="<?= $base_url ?>images/img-6.png" style="width: 170px; height: 210px;"></div>
+                        <div class="cream_img"><img src="<?= $base_url ?>images/KNO Putih.jpeg" style="width: 170px; height: 210px;"></div>
                         <!-- <div class="price_text">$10</div> -->
                         <h6 class="strawberry_text">KNO Putih</h6>
                         <a class="strawberry_text">Pupuk KNO Putih</a>
@@ -120,4 +120,5 @@
       <!-- cream sectuion end -->
        <?php include '../app/views/templates/footer.php'; ?>
    </body>
+
 </html>
