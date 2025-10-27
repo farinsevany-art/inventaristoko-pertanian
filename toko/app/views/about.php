@@ -9,7 +9,7 @@
          <div class="container">
             <div class="row">
                <div class="col-md-6">
-                  <div class="about_img"><img src="images/about-img.png"></div>
+                  <div class="about_img"><img src="<?= $base_url ?>images/banner-img.jpg" style="width: 500px; height: 400px; padding:20px;"></div>
                </div>
                <div class="col-md-6">
                   <h1 class="about_taital">About Icecream</h1>
@@ -23,4 +23,5 @@
        <?php include '../app/views/templates/footer.php'; ?>
 
    </body>
+
 </html>
