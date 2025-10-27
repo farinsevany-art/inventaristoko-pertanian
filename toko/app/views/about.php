@@ -12,8 +12,8 @@
                   <div class="about_img"><img src="<?= $base_url ?>images/banner-img.jpg" style="width: 500px; height: 400px; padding:20px;"></div>
                </div>
                <div class="col-md-6">
-                  <h1 class="about_taital">About Icecream</h1>
-                  <p class="about_text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore euconsectetur adipiscing esequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
+                  <h1 class="about_taital">Tentang Toko Pertanian Mbah Meth</h1>
+                  <p class="about_text">Toko Pertanian Mbah meth ini berdiri sejak tahun 2021 ,   yang bertempat di Desa Malangsari, Kecamatan Tanjunganom, Kabupaten Nganjuk, Kami menyediakan berbagai  kebutuhan pertanian seperti pestisida, pupuk, mulsa, obat- obatan dan berbagai bibit tanaman seperti benih padi , jagung, cabai, dll.</p>
                   <div class="read_bt_1"><a href="#">Read More</a></div>
                </div>
             </div>
@@ -25,3 +25,4 @@
    </body>
 
 </html>
+
