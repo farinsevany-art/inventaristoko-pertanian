@@ -4,6 +4,12 @@ $base_url = 'http://localhost/toko/public/';
 <!DOCTYPE html>
 <html lang="id">
 <head>
+   <style>
+.header_section {
+  position: relative;
+  z-index: 9999;
+}
+</style>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -16,8 +22,8 @@ $base_url = 'http://localhost/toko/public/';
    <link rel="stylesheet" href="<?= $base_url ?>css/jquery.mCustomScrollbar.min.css">
    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 </head>
-
 <body>
+
    <div class="header_section">
       <div class="container">
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,12 +38,26 @@ $base_url = 'http://localhost/toko/public/';
                <ul class="navbar-nav ml-auto">
                   <li class="nav-item"><a class="nav-link" href="<?= $base_url ?>home/index">Home</a></li>
                   <li class="nav-item"><a class="nav-link" href="<?= $base_url ?>home/about">Tentang</a></li>
-                  <li class="nav-item"><a class="nav-link" href="<?= $base_url ?>stok">Stok</a></li>
+                     <!-- <li class="nav-item"><a class="nav-link" href="<?= $base_url ?>?url=barang/index">Barang</a></li> -->
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="stokDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stok</a>
+                     <div class="dropdown-menu" aria-labelledby="stokDropdown">
+                        <a class="dropdown-item" href="<?= $base_url ?>?url=stokgudang/index">Stok Gudang</a>
+                        <a class="dropdown-item" href="<?= $base_url ?>?url=stoketalase/index">Stok Etalase</a>
+                     </div>
+                  </li>
                   <li class="nav-item"><a class="nav-link" href="<?= $base_url ?>home/contact">Kontak Kami</a></li>
                </ul>
                <form class="form-inline my-2 my-lg-0">
+                  <?php if (session_status() !== PHP_SESSION_ACTIVE) session_start(); ?>
                   <div class="login_bt">
-                     <a href="#">Login <span style="color:#222"><i class="fa fa-user" aria-hidden="true"></i></span></a>
+                     <?php if (!empty($_SESSION['admin_logged_in'])): ?>
+                        <!-- Show karyawan name and logout -->
+                        <span style="margin-right:12px; font-weight:600;"><?= htmlspecialchars($_SESSION['username'] ?? '') ?></span>
+                        <a href="<?= $base_url ?>?url=admin/logout">Logout <span style="color:#222"><i class="fa fa-sign-out" aria-hidden="true"></i></span></a>
+                     <?php else: ?>
+                        <a href="<?= $base_url ?>?url=admin/login.php">Login <span style="color:#222"><i class="fa fa-user" aria-hidden="true"></i></span></a>
+                     <?php endif; ?>
                   </div>
                   <div class="fa fa-search form-control-feedback"></div>
                </form>
