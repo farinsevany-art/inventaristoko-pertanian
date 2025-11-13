@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-   <body>
 <?php include '../app/views/templates/header.php';?>
          <!-- banner section start --> 
          <div class="banner_section layout_padding">
@@ -118,8 +114,5 @@
          </div>
       </div>
       <!-- cream sectuion end -->
-       <?php include '../app/views/templates/footer.php'; ?>
-   </body>
-
-</html>
+      <?php include '../app/views/templates/footer.php'; ?>
 
