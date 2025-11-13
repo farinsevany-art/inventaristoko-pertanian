@@ -1,41 +1,58 @@
 <?php
-/*require_once '../system/core.php';
+// FRONT CONTROLLER
 
-$core = new Core();
-$core->run();*/
+// session login
+session_start();
 
-
-// --- Error reporting (bisa dimatikan di production)
+// Error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// --- Path dasar project
+// Path dasar project
 define('BASE_PATH', dirname(__DIR__));
 
-// --- Ambil parameter dari URL (contoh: ?url=stok/index)
+// load halaman error
+function showErrorPage($code = 404) {
+    $errorFile = BASE_PATH . "/admin/{$code}.html";
+    if (file_exists($errorFile)) {
+        http_response_code($code);
+        include $errorFile;
+    } else {
+        http_response_code($code);
+        echo "<h3 style='color:red;'>Error $code: Halaman tidak ditemukan.</h3>";
+    }
+    exit;
+}
+
+// parameter URL ?url=barang/create)
 $url = isset($_GET['url']) ? $_GET['url'] : 'home/index';
 $url = explode('/', filter_var(trim($url, '/'), FILTER_SANITIZE_URL));
 
-// --- Tentukan controller & method
+// controller & method
 $controllerName = ucfirst($url[0]) . 'Controller';
 $method = isset($url[1]) ? $url[1] : 'index';
 
-// --- Tentukan path controller
+// Path file controller
 $controllerFile = BASE_PATH . '/app/controllers/' . $controllerName . '.php';
 
-// --- Cek apakah controller ada
+// Cek file controller
 if (file_exists($controllerFile)) {
     require_once $controllerFile;
-    $controller = new $controllerName();
 
-    // --- Cek apakah method ada di controller
-    if (method_exists($controller, $method)) {
-        // Jika ada parameter tambahan di URL, kirimkan juga
-        $params = array_slice($url, 2);
-        call_user_func_array([$controller, $method], $params);
+    // Cek class controller
+    if (class_exists($controllerName)) {
+        $controller = new $controllerName();
+
+        // Cek method-nya 
+        if (method_exists($controller, $method)) {
+            $params = array_slice($url, 2);
+            call_user_func_array([$controller, $method], $params);
+        } else {
+            showErrorPage(404);
+        }
     } else {
-        echo "<h3 style='color:red;'>Error: Method '$method' tidak ditemukan di $controllerName</h3>";
+        echo "<h3 style='color:red;'>Error: Class $controllerName tidak ditemukan di $controllerFile</h3>";
     }
 } else {
-    echo "<h3 style='color:red;'>Error: Controller '$controllerName' tidak ditemukan</h3>";
+    showErrorPage(404);
 }
