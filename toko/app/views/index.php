@@ -51,7 +51,7 @@
             <div class="cream_section_2">
                <div class="row">
                   <div class="col-md-4">
-                     <div class="cream_box">
+                     <div class="cream_box" style="text-align : center;">
                         <div class="cream_img"><img src="<?= $base_url ?>images/Arrivo 100 ml.jpeg" style="width: 170px; height: 210px;"></div>
                         <!-- <div class="price_text">10</div> -->
                         <h6 class="strawberry_text">Arrivo</h6>
@@ -59,17 +59,17 @@
                            <!-- <div class="cart_bt"><a href="#">Add To Cart</a></div> -->
                         </div>
                      </div>
-                     <div class="col-md-4">
-                        <div class="cream_box">
-                           <div class="cream_img"><img src="<?= $base_url ?>images/Arjuna 100 ml.jpeg" style="width: 170px; height: 210px;"></div>
-                           <!-- <div class="price_text">$10</div> -->
-                           <h6 class="strawberry_text">Arjuna</h6>
+                  <div class="col-md-4">
+                     <div class="cream_box" style="text-align: center;">
+                        <div class="cream_img">
+                           <img src="<?= $base_url ?>images/Arjuna 100 ml.jpeg" style="width: 170px; height: 210px;">
+                        </div>
+                        <h6 class="strawberry_text">Arjuna</h6>
                         <a class="strawberry_text">Insektisida Arjuna</a>
-                        <!-- <div class="cart_bt"><a href="#">Add To Cart</a></div> -->
                      </div>
                   </div>
                   <div class="col-md-4">
-                     <div class="cream_box">
+                     <div class="cream_box" style="text-align : center;">
                         <div class="cream_img"><img src="<?= $base_url ?>images/Ares 100 ml.jpeg" style="width: 170px; height: 210px;"></div>
                         <!-- <div class="price_text">$10</div> -->
                         <h6 class="strawberry_text">Ares</h6>
@@ -82,7 +82,7 @@
             <div class="cream_section_2">
                <div class="row">
                   <div class="col-md-4">
-                     <div class="cream_box">
+                     <div class="cream_box" style="text-align : center;">
                         <div class="cream_img"><img src="<?= $base_url ?>images/KNO Merah.jpeg" style="width: 170px; height: 210px;"></div>
                         <!-- <div class="price_text">$10</div> -->
                         <h6 class="strawberry_text">KNO Merah</h6>
@@ -91,7 +91,7 @@
                      </div>
                   </div>
                   <div class="col-md-4">
-                     <div class="cream_box">
+                     <div class="cream_box" style="text-align : center;">
                         <div class="cream_img"><img src="<?= $base_url ?>images/KCL Mahkota.jpeg" style="width: 170px; height: 210px;"></div>
                         <!-- <div class="price_text">$10</div> -->
                         <h6 class="strawberry_text">KCL Mahkota</h6>
@@ -100,7 +100,7 @@
                      </div>
                   </div>
                   <div class="col-md-4">
-                     <div class="cream_box">
+                     <div class="cream_box" style="text-align : center;">
                         <div class="cream_img"><img src="<?= $base_url ?>images/KNO Putih.jpeg" style="width: 170px; height: 210px;"></div>
                         <!-- <div class="price_text">$10</div> -->
                         <h6 class="strawberry_text">KNO Putih</h6>
