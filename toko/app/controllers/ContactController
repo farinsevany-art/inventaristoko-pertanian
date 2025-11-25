@@ -1,0 +1,33 @@
+<?php
+class ContactController
+{
+    public function send()
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header("Location: /contact");
+            exit;
+        }
+
+        $name    = htmlspecialchars($_POST['name']);
+        $email   = htmlspecialchars($_POST['email']);
+        $phone   = htmlspecialchars($_POST['phone']);
+        $message = htmlspecialchars($_POST['message']);
+
+        
+        if (empty($name) || empty($email) || empty($phone) || empty($message)) {
+            echo "<script>
+                    alert('Semua field harus diisi!');
+                    window.history.back();
+                 </script>";
+            exit;
+        }
+        $waMessage  = "Halo Admin, ada pesan baru dari website:%0A%0A";
+        $waMessage .= "Nama: $name%0A";
+        $waMessage .= "Email: $email%0A";
+        $waMessage .= "No HP: $phone%0A";
+        $waMessage .= "Pesan: $message";
+        $waNumber = "6281233286308";
+        header("Location: https://wa.me/$waNumber?text=$waMessage");
+        exit;
+    }
+}
