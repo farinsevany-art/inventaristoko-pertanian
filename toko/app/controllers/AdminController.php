@@ -1,8 +1,9 @@
+
 <?php
 
 class AdminController {
     public function __construct() {
-        // Cek apakah user sudah login admin, kecuali saat akses halaman login
+        // login admin
         $currentUrl = $_GET['url'] ?? '';
     if (!isset($_SESSION['admin_logged_in']) && $currentUrl !== 'admin/login') {
             header('Location: ?url=admin/login');
@@ -11,8 +12,33 @@ class AdminController {
     }
 
     public function index() {
-        include __DIR__ . '/../views/admin/index.php';
-    }
+
+    require_once __DIR__ . '/../models/StokGudangModel.php';
+    require_once __DIR__ . '/../models/StokEtalaseModel.php';
+
+    $gudang = new StokGudangModel();
+    $etalase = new StokEtalaseModel();
+
+    // Summary data
+    $totalGudang = $gudang->getTotalStok()['total'] ?? 0;
+    $totalEtalase = $etalase->getTotalStok()['total'] ?? 0;
+
+    $lowGudang = $gudang->getLowStock();
+    $lowEtalase = $etalase->getLowStock();
+
+    $zeroGudang = $gudang->getZeroStock();
+    $zeroEtalase = $etalase->getZeroStock();
+
+    $maxGudang = $gudang->getMaxStock();
+    $maxEtalase = $etalase->getMaxStock();
+
+    // Untuk progress bar stok
+    $stokGudangAll = $gudang->getAllStokGudang();
+    $stokEtalaseAll = $etalase->getAllStokEtalase();
+
+    include __DIR__ . '/../views/admin/index.php';
+}
+
 
     public function tables() {
         include __DIR__ . '/../views/admin/tables.php';
@@ -23,13 +49,13 @@ class AdminController {
     }
 
     public function login() {
-        // Jika form login dikirim
+        // form login
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             require_once __DIR__ . '/../models/Akun.php';
             $model = new Akun();
             $username = trim($_POST['username'] ?? '');
             $password = $_POST['password'] ?? '';
-            // Cari akun berdasarkan username
+            // akun
             $res = $this->findByUsername($model, $username);
             // Support both hashed passwords (password_hash) and existing plain-text passwords in DB
             if ($res) {
@@ -74,5 +100,5 @@ class AdminController {
         session_destroy();
         header('Location: ?url=admin/login');
         exit;
-    }
+    }    
 }
