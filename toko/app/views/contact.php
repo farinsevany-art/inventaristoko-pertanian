@@ -82,7 +82,7 @@
         <div class="row mt-4">
             <div class="col-md-12">
                 <iframe 
-                    src="https://www.google.com/maps?q=Desa+Malangsari,+Tanjunganom,+Nganjuk,+Jawa+Timur&hl=id&z=15&output=embed" 
+                    src="https://www.google.com/maps?q=Kanda+Buana+Pertanian&hl=id&z=15&output=embed" 
                     width="100%" 
                     height="350" 
                     style="border:0;" 
