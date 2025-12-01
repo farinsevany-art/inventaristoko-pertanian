@@ -29,6 +29,11 @@ $base_url = 'http://localhost/toko/public/';
                             <input class="form-control" name="total_stok_eta" type="number" min="0" value="<?= htmlspecialchars($stok['total_stok_eta']) ?>" required />
                         </div>
 
+                        <div class="mb-3">
+                            <label class="form-label">Rak</label>
+                            <input class="form-control" name="rak" type="text" value="<?= htmlspecialchars($stok['rak'] ?? '') ?>" placeholder="Masukkan rak, mis. R1-A" />
+                        </div>
+
                         <button class="btn btn-primary">Simpan</button>
                         <a class="btn btn-secondary" href="?url=stoketalase/index">Batal</a>
                     </form>
