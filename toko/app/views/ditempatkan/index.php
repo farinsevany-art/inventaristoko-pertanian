@@ -65,8 +65,9 @@ $base_url = 'http://localhost/toko/public/';
 
                 <div class="card-body">
 
-                    <table id="datatablesSimple" class="table table-striped table-bordered">
-                        <thead class="table-dark">
+                    <div class="table-responsive">
+                    <table id="datatablesSimple" class="table table-bordered">
+                        <thead class="table table-bordered">
                             <tr>
                                 <th>Nama Barang</th>
                                 <th>Jenis Barang</th>
@@ -89,6 +90,7 @@ $base_url = 'http://localhost/toko/public/';
                         </tbody>
 
                     </table>
+                    </div>
 
                 </div>
             </div>
