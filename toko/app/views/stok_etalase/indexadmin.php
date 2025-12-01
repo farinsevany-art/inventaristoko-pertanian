@@ -35,6 +35,15 @@ $base_url = 'http://localhost/toko/public/';
         </select>
     </div>
 
+    <div class="col-md-2">
+        <select name="rak" class="form-select">
+            <option value="">Pilih Rak</option>
+            <?php if (!empty($rakOptions)): foreach ($rakOptions as $r): $val = is_array($r) ? ($r['rak'] ?? '') : $r; ?>
+                <option value="<?= htmlspecialchars($val) ?>" <?= (isset($_GET['rak']) && $_GET['rak'] === $val) ? 'selected' : '' ?>><?= htmlspecialchars($val === '' ? '(kosong)' : $val) ?></option>
+            <?php endforeach; endif; ?>
+        </select>
+    </div>
+
     <div class="col-md-4">
         <div class="row g-1">
             <div class="col">
@@ -92,6 +101,7 @@ $base_url = 'http://localhost/toko/public/';
                         Data Stok Etalase
                     </div>
                     <div class="card-body">
+                        <div class="table-responsive">
                         <table id="datatablesSimple" class="table table-bordered">
                             <thead>
                                 <tr>
@@ -99,6 +109,7 @@ $base_url = 'http://localhost/toko/public/';
                                     <!-- <th>ID Etalase</th> -->
                                     <th>Nama Barang</th>
                                     <th>Jenis Barang</th>
+                                    <th>Rak</th>
                                     <th>Kadaluarsa</th>
                                     <th>Jumlah</th>
                                     <?php if (!empty($_SESSION['admin_logged_in'])): ?>
@@ -113,6 +124,7 @@ $base_url = 'http://localhost/toko/public/';
                                         <!-- <td><?= htmlspecialchars($row['id_stok_etalase']) ?></td> -->
                                         <td><?= htmlspecialchars($row['nama_barang'] ?? '-') ?></td>
                                         <td><?= htmlspecialchars($row['jenis_barang'] ?? '-') ?></td>
+                                        <td><?= htmlspecialchars($row['rak'] ?? '-') ?></td>
                                         <td><?= htmlspecialchars($row['kadaluarsa_barang'] ?? '-') ?></td>
                                         <td><?= htmlspecialchars($row['total_stok_eta']) ?></td>
                                         <?php if (!empty($_SESSION['admin_logged_in'])): ?>
@@ -125,6 +137,7 @@ $base_url = 'http://localhost/toko/public/';
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             <?php endif; ?>
