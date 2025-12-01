@@ -16,9 +16,16 @@ $base_url = 'http://localhost/toko/public/';
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
 <style>
-    /* fix sidebar tidak muncul di layar kecil */
+    /* ensure navbar dropdown remains clickable: keep sidebar z-index lower than topnav */
     #layoutSidenav_nav {
-        z-index: 9999 !important;
+        z-index: 1040; /* lower than topnav */
+    }
+    .sb-topnav {
+        z-index: 1050; /* keep topnav above the sidebar */
+    }
+    /* ensure dropdown menu appears above everything */
+    .dropdown-menu {
+        z-index: 99999 !important;
     }
 
     /* default sidebar SB Admin */
@@ -48,28 +55,20 @@ $base_url = 'http://localhost/toko/public/';
             <i class="fas fa-bars"></i>
         </button>
 
-        <!-- SEARCH -->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-3">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search..." />
-                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-            </div>
-        </form>
+    <!-- SEARCH removed per request -->
 
-        <!-- USER MENU -->
-        <ul class="navbar-nav ms-auto ms-md-0 me-4">
+    <!-- USER MENU -->
+    <ul class="navbar-nav ms-auto me-4">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" data-bs-toggle="dropdown" role="button">
-                    <i class="fas fa-user fa-fw"></i>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg class="svg-inline--fa fa-user fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"></path></svg>
                     <span><?= htmlspecialchars($_SESSION['username'] ?? 'Guest') ?></span>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item">Settings</a></li>
-                        <li><a class="dropdown-item">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="<?= $base_url ?>?url=login/logout">Logout</a></li>
-                    </ul>
-                </li>
                 </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="<?= $base_url ?>?url=admin/logout">Logout</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 
@@ -144,5 +143,22 @@ document.getElementById('sidebarToggle').addEventListener('click', function () {
     localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
         const brand = document.getElementById("brandText");
 
+});
+</script>
+<script>
+// Ensure the navbar user dropdown reliably toggles when clicked
+document.addEventListener('DOMContentLoaded', function () {
+    var userToggle = document.getElementById('navbarDropdown');
+    if (!userToggle) return;
+    try {
+        userToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            // Use Bootstrap's Dropdown API to toggle explicitly
+            var bs = bootstrap.Dropdown.getInstance(userToggle) || new bootstrap.Dropdown(userToggle);
+            bs.toggle();
+        });
+    } catch (err) {
+        console.error('Dropdown toggle init error', err);
+    }
 });
 </script>
