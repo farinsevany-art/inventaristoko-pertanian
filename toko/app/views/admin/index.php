@@ -40,8 +40,8 @@ foreach ($stokEtalaseAll as $item) {
         <div class="col-xl-3 col-md-6">
             <div class="card bg-primary text-white mb-4">
                 <div class="card-body">
-                    <h5>Total Stok Gudang</h5>
-                    <h2><?= $totalGudang ?></h2>
+                        <h5>Total Stok Gudang</h5>
+                        <h2 style="font-size:48px; font-weight:700; margin:0; padding:0;"><?= $totalGudang ?></h2>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="?url=stokGudang/index">Lihat Detail</a>
@@ -53,8 +53,8 @@ foreach ($stokEtalaseAll as $item) {
         <div class="col-xl-3 col-md-6">
             <div class="card bg-info text-white mb-4">
                 <div class="card-body">
-                    <h5>Total Stok Etalase</h5>
-                    <h2><?= $totalEtalase ?></h2>
+                        <h5>Total Stok Etalase</h5>
+                        <h2 style="font-size:48px; font-weight:700; margin:0; padding:0;"><?= $totalEtalase ?></h2>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="?url=stokEtalase/index">Lihat Detail</a>
@@ -66,8 +66,8 @@ foreach ($stokEtalaseAll as $item) {
         <div class="col-xl-3 col-md-6">
             <div class="card bg-warning text-white mb-4">
                 <div class="card-body">
-                    <h5>Stok Menipis</h5>
-                    <h2><?= count($lowGudang) + count($lowEtalase) ?></h2>
+                        <h5>Stok Menipis</h5>
+                        <h2 style="font-size:48px; font-weight:700; margin:0; padding:0;"><?= count($lowGudang) + count($lowEtalase) ?></h2>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="?url=stok/low">Lihat Detail</a>
@@ -79,8 +79,8 @@ foreach ($stokEtalaseAll as $item) {
         <div class="col-xl-3 col-md-6">
             <div class="card bg-danger text-white mb-4">
                 <div class="card-body">
-                    <h5>Stok Habis</h5>
-                    <h2><?= count($zeroGudang) + count($zeroEtalase) ?></h2>
+                        <h5>Stok Habis</h5>
+                        <h2 style="font-size:48px; font-weight:700; margin:0; padding:0;"><?= count($zeroGudang) + count($zeroEtalase) ?></h2>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="?url=stok/habis">Lihat Detail</a>
@@ -89,6 +89,8 @@ foreach ($stokEtalaseAll as $item) {
             </div>
         </div>
     </div>
+
+        <!-- (Pendataan moved to admin/tables.php) -->
 
 <!-- GRAFIK -->
 <div class="card mb-4 shadow-sm">
