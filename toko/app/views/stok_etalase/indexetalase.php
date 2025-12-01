@@ -21,6 +21,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) session_start();
                         Data Stok Etalase
                     </div>
                     <div class="card-body">
+                        <div class="table-responsive">
                         <table id="datatablesSimple" class="table table-bordered">
                             <thead>
                                 <tr>
@@ -52,6 +53,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) session_start();
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             <?php endif; ?>
