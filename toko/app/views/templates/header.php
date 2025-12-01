@@ -38,7 +38,7 @@ $base_url = 'http://localhost/toko/public/';
                <ul class="navbar-nav ml-auto">
                   <li class="nav-item"><a class="nav-link" href="<?= $base_url ?>home/index">Home</a></li>
                   <li class="nav-item"><a class="nav-link" href="<?= $base_url ?>home/about">Tentang</a></li>
-                  <li class="nav-item"><a class="nav-link" href="<?= $base_url ?>?url=barang/index">Barang</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?= $base_url ?>home/barang/index">Barang</a></li>
                   <li class="nav-item"><a class="nav-link" href="<?= $base_url ?>?url=stoketalase/index">Stok Etalase</a></li>
                   <li class="nav-item"><a class="nav-link" href="<?= $base_url ?>home/contact">Kontak Kami</a></li>
                   <?php if (session_status() !== PHP_SESSION_ACTIVE) session_start(); ?>
@@ -56,7 +56,7 @@ $base_url = 'http://localhost/toko/public/';
                         <a href="<?= $base_url ?>?url=admin/login.php">Login <span style="color:#222"><i class="fa fa-user" aria-hidden="true"></i></span></a>
                      <?php endif; ?>
                   </div>
-                  <div class="fa fa-search form-control-feedback"></div>
+                  <!-- search icon removed per request -->
                </form>
             </div>
          </nav>
