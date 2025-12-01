@@ -9,10 +9,11 @@
     <?php if (empty($data)) : ?>
         <div class="alert alert-info">Belum ada stok etalase.</div>
     <?php else : ?>
-        <table class="table table-bordered">
+        <div class="table-responsive">
+            <table class="table table-bordered">
             <thead>
                 <tr><th>#</th>
-                <th>ID Stok Etalase</th><th>ID Barang</th><th>Nama Barang</th><th>Jenis Barang</th><th>Kadaluarsa</th><th>Jumlah</th><?php if (!empty($_SESSION['admin_logged_in'])): ?>
+                    <th>ID Stok Etalase</th><th>ID Barang</th><th>Nama Barang</th><th>Jenis Barang</th><th>Rak</th><th>Kadaluarsa</th><th>Jumlah</th><?php if (!empty($_SESSION['admin_logged_in'])): ?>
                         <th>Aksi</th>
                     <?php endif; ?></tr>
             </thead>
@@ -24,6 +25,7 @@
                         <td><?= htmlspecialchars($row['id_barang'] ?? '-') ?></td>
                         <td><?= htmlspecialchars($row['nama_barang'] ?? '-') ?></td>
                         <td><?= htmlspecialchars($row['jenis_barang'] ?? '-') ?></td>
+                        <td><?= htmlspecialchars($row['rak'] ?? '-') ?></td>
                         <td><?= htmlspecialchars($row['kadaluarsa_barang'] ?? '-') ?></td>
                         <td><?= htmlspecialchars($row['total_stok_eta']) ?></td>
                         <?php if (!empty($_SESSION['admin_logged_in'])): ?>
@@ -35,7 +37,8 @@
                     </tr>
                 <?php endforeach; ?>
             </tbody>
-        </table>
+            </table>
+        </div>
     <?php endif; ?>
     <style>
 .header_section {
