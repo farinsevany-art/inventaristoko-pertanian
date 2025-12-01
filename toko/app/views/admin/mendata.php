@@ -17,7 +17,8 @@ $base_url = 'http://localhost/toko/public/';
             Data Pendataan
         </div>
         <div class="card-body">
-            <table class="table table-striped">
+            <div class="table-responsive">
+            <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>#</th>
@@ -41,6 +42,7 @@ $base_url = 'http://localhost/toko/public/';
                 <?php endforeach; ?>
             </tbody>
             </table>
+            </div>
         </div>
     </div>
 
