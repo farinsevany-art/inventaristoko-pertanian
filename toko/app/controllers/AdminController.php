@@ -58,55 +58,7 @@ class AdminController {
     require_once __DIR__ . '/../models/KaryawanModel.php';
 
     $mModel = new Mendata();
-
-    $filters = [
-        'nama_barang' => $_GET['nama_barang'] ?? null,
-        'jenis_barang' => $_GET['jenis_barang'] ?? null,
-        'day' => $_GET['day'] ?? null,
-        'month' => $_GET['month'] ?? null,
-        'year' => $_GET['year'] ?? null,
-    ];
-
-    $conditions = [];
-
-    if (!empty($filters['nama_barang'])) {
-        $nama_barang = $mModel->escape($filters['nama_barang']);
-        $conditions[] = "b.nama_barang LIKE '%$nama_barang%'";
-    }
-    if (!empty($filters['jenis_barang'])) {
-        $jenis_barang = $mModel->escape($filters['jenis_barang']);
-        $conditions[] = "b.jenis_barang = '$jenis_barang'";
-    }
-    if (!empty($filters['day'])) {
-        $day = (int)$filters['day'];
-        $conditions[] = "DAY(m.tgl_pendataan) = $day";
-    }
-    if (!empty($filters['month'])) {
-        $month = (int)$filters['month'];
-        $conditions[] = "MONTH(m.tgl_pendataan) = $month";
-    }
-    if (!empty($filters['year'])) {
-        $year = (int)$filters['year'];
-        $conditions[] = "YEAR(m.tgl_pendataan) = $year";
-    }
-
-    $where = '';
-    if (count($conditions) > 0) {
-        $where = 'WHERE ' . implode(' AND ', $conditions);
-    }
-
-    $query = "
-        SELECT m.*, b.nama_barang, b.jenis_barang
-        FROM mendata m
-        LEFT JOIN barang b ON m.id_barang = b.id_barang
-        $where
-        ORDER BY m.tgl_pendataan DESC
-    ";
-
-    $mendataList = $mModel->getAll($query);
-
-    // Get distinct jenis_barang list for filter dropdown
-    $jenisBarangList = $mModel->getDistinctJenisBarang();
+    $mendataList = $mModel->getAll();
 
     $kModel = new Karyawan();
     $karyawans = $kModel->getAll();
@@ -118,6 +70,29 @@ class AdminController {
 
     include __DIR__ . '/../views/admin/mendata.php';
 }
+
+    public function kontak() {
+        require_once __DIR__ . '/../models/Kontak.php';
+
+        $kModel = new Kontak();
+        $kontakList = $kModel->getAll();
+
+        include __DIR__ . '/../views/admin/kontak.php';
+    }
+
+    // Hapus Kontak oleh admin
+    public function deleteKontak() {
+        if (!isset($_GET['id'])) {
+            header('Location: ?url=admin/kontak');
+            exit;
+        }
+        $id = (int)$_GET['id'];
+        require_once __DIR__ . '/../models/Kontak.php';
+        $kModel = new Kontak();
+        $kModel->delete($id);
+        header('Location: ?url=admin/kontak');
+        exit;
+    }
 
 
     public function charts() {
